@@ -17,7 +17,7 @@ const App = () => {
     const fetchUser = async () => {
 
       try {
-        const response = await axios.get('/api/user');
+        const response = await axios.get('https://kennetbackend.onrender.com/api/user');
         setUsername(response.data.username);
       } catch (error) {
         console.error('Error fetching user:', error);
@@ -45,7 +45,7 @@ const App = () => {
 
   const fetchallpost = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/posts/posts');
+      const response = await axios.get('https://kennetbackend.onrender.com/posts/posts');
       setAllposts(response.data);
       console.log(response.data);
     } catch (error) {
@@ -64,7 +64,7 @@ const App = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('/api/posts');
+      const response = await axios.get('https://kennetbackend.onrender.com/api/posts');
       setPosts(response.data);
 
     } catch (error) {
@@ -98,7 +98,7 @@ const App = () => {
 
   const handleAddComment = async (postid, commentText) => {
     try {
-      await axios.post(`http://localhost:3000/posts/comment/${postid}/comments/${username}`, {
+      await axios.post(`https://kennetbackend.onrender.com/posts/comment/${postid}/comments/${username}`, {
         user: username,
         message: commentText,
       });
