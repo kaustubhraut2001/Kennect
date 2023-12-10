@@ -1,0 +1,21 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGODB_URI=<YOUR_MONGODB_URI>  # MongoDB Atlas connection string
+    networks:
+      - mern-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '5173:5173'
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
